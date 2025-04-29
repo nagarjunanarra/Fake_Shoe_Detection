@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Fake Shoes Review</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: Grey;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .site-name:hover {
+            color: #00ff99;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0 300px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3 ;
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .section h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: rgb(192, 124, 23);
+            margin-bottom: 40px;
+        }
+
+        .overview-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .overview-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 30%;
+            min-width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .overview-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .overview-card p {
+            color: #555;
+        }
+
+        .faq-container, .privacy-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .faq-item, .privacy-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+
+        .faq-item:hover, .privacy-item:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question, .privacy-question {
+            font-size: 18px;
+            color: rgb(192, 124, 23);
+            margin: 0;
+        }
+
+        .faq-answer, .privacy-answer {
+            display: none;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .faq-item.active .faq-answer,
+        .privacy-item.active .privacy-answer {
+            display: block;
+        }
+
+        footer {
+            background-color: grey;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgb(192, 124, 23);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo-container">
+            <img src="../images/Logo.jpg" alt="Fake Shoes Review" class="logo">
+            <span class="site-name">Fake Shoes Review</span>
+        </div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Works.html">How It Works</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="section" style="padding-top: 50px;">
+    <h1>Analysis Overview</h1>
+    <p>Uncovering the truth behind reviews with AI</p>
+    <div class="overview-container">
+        <div class="overview-card">
+            <h3>Data Input</h3>
+            <p>Our analysis begins with gathering user-submitted review data via uploads or text input, ensuring a comprehensive assessment of both structured and unstructured formats.</p>
+        </div>
+        <div class="overview-card">
+            <h3>AI Processing</h3>
+            <p>Advanced AI algorithms analyze sentiment, language patterns, and contextual clues to determine authenticity in real-time.</p>
+        </div>
+        <div class="overview-card">
+            <h3>Result Display</h3>
+            <p>Results are displayed with visual indicators—green for genuine reviews and red for fake, ensuring clear interpretation.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h1>Your Privacy Matters</h1>
+    <p>Committed to safeguarding your data</p>
+    <div class="privacy-container">
+        <div class="privacy-item">
+            <h3 class="privacy-question">What data do you collect?</h3>
+            <p class="privacy-answer">We only collect the review content you submit, maintaining your privacy by not tracking personal information unless explicitly provided.</p>
+        </div>
+        <div class="privacy-item">
+            <h3 class="privacy-question">How is my data used?</h3>
+            <p class="privacy-answer">Your data is used solely for analyzing reviews, ensuring you receive accurate feedback while keeping your information confidential.</p>
+        </div>
+        <div class="privacy-item">
+            <h3 class="privacy-question">Is my data secure?</h3>
+            <p class="privacy-answer">Yes, we employ industry-standard security measures to protect your data throughout the analysis process.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h1>Frequently Asked Questions</h1>
+    <p>Here to clarify your doubts</p>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h3 class="faq-question">How accurate is the analysis?</h3>
+            <p class="faq-answer">Our AI-powered system achieves high accuracy rates by leveraging extensive datasets and advanced machine learning techniques.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can I trust the results?</h3>
+            <p class="faq-answer">Yes, our system continuously refines its algorithms to ensure reliable and consistent results across diverse datasets.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Is there a cost for using the service?</h3>
+            <p class="faq-answer">Our basic review analysis service is free, with advanced features available through premium plans.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Fake Shoes Review. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.faq-item, .privacy-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>

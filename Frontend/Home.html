@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Shoes Review</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: Grey;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .site-name:hover {
+            color: #00ff99;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0 300px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3 ;
+        }
+
+        .hero {
+            background-image: url(../images/BG.jpg); 
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 20px;
+            width: 60%;
+            margin: 10px auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        
+                .modal {
+                    display: none; 
+                    position: fixed; 
+                    z-index: 2000; 
+                    padding-top: 60px; 
+                    left: 0;
+                    top: 0;
+                    width: 100%; 
+                    height: 100%; 
+                    overflow: auto; 
+                    background-color: rgba(0,0,0,0.5); 
+                }
+
+                .modal-content {
+                    background-color: #fff;
+                    margin: auto;
+                    padding: 20px;
+                    border-radius: 15px;
+                    width: 80%;
+                    max-width: 500px;
+                    text-align: center;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                }
+
+
+                .close {
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+                .close:hover, .close:focus {
+                    color: black;
+                    text-decoration: none;
+                }
+
+                
+                #modal-image {
+                    width: 100%;
+                    max-width: 400px;
+                    border-radius: 15px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+              
+                .result-container {
+                    padding: 10px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                }
+
+                .result-real {
+                    background-color: lightgreen;
+                    color: darkgreen;
+                }
+
+                .result-fake {
+                    background-color: lightcoral;
+                    color: darkred;
+                }
+
+
+
+        button {
+            font-size: 18px;
+            padding: 12px 30px;
+            background-color: rgb(192, 124, 23);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .upload-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .upload-content {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .upload-content h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .upload-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .upload-content input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        .upload-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .upload-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-section {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            margin: 20px auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .review-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .review-card h3 {
+            color: #333;
+            font-size: 22px;
+            margin: 15px 0 10px;
+        }
+
+        .review-card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .review-card button {
+            background-color: rgb(192, 124, 23);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .review-card button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: grey;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgb(192, 124, 23);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+        drop-zone {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .drop-zone.dragover {
+            border-color: #0056b3;
+            background-color: #f0f8ff;
+        }
+
+        .progress-container {
+            display: none;
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            width: 0;
+            background: #4caf50;
+            transition: width 0.3s;
+        }
+
+        .result-container {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .result-real {
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+
+        .result-fake {
+            background-color: lightcoral;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../images/Logo.jpg" alt="Fake Shoes Review" class="logo">
+                <span class="site-name">Fake Shoes Review</span>
+            </div>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Works.html">How It Works</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Fake Shoe Review</h1>
+        <p>Discover the power of AI in analyzing shoe reviews to distinguish genuine feedback from fake opinions.</p>
+        <button>Contact Us</button>
+    </section>
+
+    <section class="upload-section">
+        <div class="upload-content">
+            <h2>Upload Your Shoe Images</h2>
+            <p>Submit images of your shoes to help us identify authenticity.</p>
+            <div class="drop-zone" id="drop-zone">Drag & Drop Image Here or <button> Click to Upload </button> </div>
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+            <button id="upload-btn">Upload</button>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div id="result-container" class="result-container"></div>
+        </div>
+        <div class="upload-image">
+            <img src="../images/Image.webp" alt="Shoe Example">
+        </div>
+    </section>
+    
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <img id="modal-image" src="" alt="Uploaded Shoe" style="width: 100%; border-radius: 10px;">
+                <div id="modal-result" class="result-container" style="margin-top: 15px;"></div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropZone = document.getElementById("drop-zone");
+                const fileInput = document.getElementById("file-input");
+                const uploadBtn = document.getElementById("upload-btn");
+                const progressBar = document.getElementById("progress-bar");
+                const progressContainer = document.querySelector(".progress-container");
+                const resultContainer = document.getElementById("result-container");
+        
+                // Modal Elements
+                const resultModal = document.getElementById("result-modal");
+                const modalImage = document.getElementById("modal-image");
+                const modalResult = document.getElementById("modal-result");
+                const closeModal = document.getElementById("close-modal");
+        
+                // Drag & Drop Handlers
+                dropZone.addEventListener("click", () => fileInput.click());
+        
+                dropZone.addEventListener("dragover", (event) => {
+                    event.preventDefault();
+                    dropZone.classList.add("dragover");
+                });
+        
+                dropZone.addEventListener("dragleave", () => {
+                    dropZone.classList.remove("dragover");
+                });
+        
+                dropZone.addEventListener("drop", (event) => {
+                    event.preventDefault();
+                    dropZone.classList.remove("dragover");
+                    const files = event.dataTransfer.files;
+                    if (files.length > 0) {
+                        fileInput.files = files;
+                        previewImage(files[0]);
+                    }
+                });
+        
+                fileInput.addEventListener("change", () => {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        previewImage(file);
+                    }
+                });
+        
+                function previewImage(file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        modalImage.src = e.target.result;  // Set the image in the modal
+                    };
+                    reader.readAsDataURL(file);
+                }
+        
+                // Upload Button Event
+                uploadBtn.addEventListener("click", async () => {
+                    const file = fileInput.files[0];
+                    if (!file) {
+                        alert("Please select a file first.");
+                        return;
+                    }
+        
+                    const formData = new FormData();
+                    formData.append("file", file);
+        
+                    progressContainer.style.display = "block";
+                    progressBar.style.width = "0%";
+        
+                    try {
+                        const response = await fetch("http://127.0.0.1:8000/upload/", {
+                            method: "POST",
+                            body: formData,
+                        });
+        
+                        if (!response.ok) {
+                            throw new Error(`Server responded with ${response.status}`);
+                        }
+        
+                        const result = await response.json();
+                        progressBar.style.width = "100%";
+        
+                        if (result && result.prediction) {
+                            // Show the modal with the uploaded image and prediction
+                            modalImage.src = URL.createObjectURL(file);  // Ensure the image is set correctly
+                            modalResult.textContent = `Prediction: ${result.prediction} (Confidence: ${result.confidence}%)`;
+                            modalResult.className = `result-container ${result.prediction.toLowerCase().includes('real') ? 'result-real' : 'result-fake'}`;
+        
+                            resultModal.style.display = "block";
+        
+                            // Optional: Display on the main page as well
+                            resultContainer.style.display = "block";
+                            resultContainer.textContent = `Prediction: ${result.prediction} (Confidence: ${result.confidence}%)`;
+                            resultContainer.className = `result-container ${result.prediction.toLowerCase().includes('real') ? 'result-real' : 'result-fake'}`;
+                        } else {
+                            resultContainer.style.display = "block";
+                            resultContainer.textContent = "Error processing image.";
+                            resultContainer.className = "result-container result-fake";
+                        }
+                    } catch (error) {
+                        console.error("Upload failed:", error);
+                        resultContainer.style.display = "block";
+                        resultContainer.textContent = `Failed to upload the image. ${error.message}`;
+                        resultContainer.className = "result-container result-fake";
+                    }
+                });
+        
+                // Close Modal Handlers
+                closeModal.onclick = () => {
+                    resultModal.style.display = "none";
+                };
+        
+                window.onclick = (event) => {
+                    if (event.target === resultModal) {
+                        resultModal.style.display = "none";
+                    }
+                };
+            });
+        </script>
+        
+        
+        
+    <section class="review-section">
+        <div class="review-card">
+            <img src="../images/AI.jpg" alt="AI Analysis">
+            <h3>AI Analysis Process</h3>
+            <p>Our AI uses advanced algorithms to evaluate the language, sentiment, and patterns in reviews, ensuring high accuracy.</p>
+            <button>Read More</button>
+        </div>
+        <div class="review-card">
+            <img src="../images/Result.jpg" alt="Visual Results">
+            <h3>Visual Results</h3>
+            <p>Instant visual feedback indicates genuine reviews in green and fake ones in red, ensuring clarity and understanding.</p>
+            <button>Read More</button>
+        </div>
+        <div class="review-card">
+            <img src="../images/Pic.jpg" alt="Continuous Improvement">
+            <h3>Continuous Improvement</h3>
+            <p>Our AI continually learns from user interactions, improving its accuracy over time to detect new fake review trends.</p>
+            <button>Read More</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fake Shoes Review. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

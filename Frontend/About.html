@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fake Shoes Review</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: Grey;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .site-name:hover {
+            color: #00ff99;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0 300px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3 ;
+        }
+
+        .about-hero {
+            background-color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .about-hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+            width: 60%;
+            margin: auto;
+            color: #555;
+        }
+
+        .commitment-section {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .commitment-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .commitment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .commitment-card img {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .commitment-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .commitment-card h3 {
+            color: #333;
+            font-size: 22px;
+            margin: 15px 0 10px;
+        }
+
+        .commitment-card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .team-section {
+            background-color: #222;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 36px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .team-member img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+
+        .team-member h3 {
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        footer {
+            background-color: grey;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgb(192, 124, 23);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../images/Logo.jpg" alt="Fake Shoes Review" class="logo">
+                <span class="site-name">Fake Shoes Review</span>
+            </div>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Works.html">How It Works</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>Our Commitment to Authenticity</h1>
+        <p>Ensuring every review counts. We use cutting-edge AI technology to analyze shoe reviews and provide transparency in the online shopping experience.</p>
+    </section>
+
+    <section class="commitment-section">
+        <div class="commitment-card">
+            <img src="../images/review_detection.jpg" alt="Review Detection">
+            <h3>Detection of Deceptive Reviews</h3>
+            <p>Our AI technology detects fake reviews with high accuracy, analyzing linguistic patterns, sentiment, and authenticity signals.</p>
+        </div>
+        <div class="commitment-card">
+            <img src="../images/consumer_empowerment.jpg" alt="Consumer Empowerment">
+            <h3>Empowering Consumers</h3>
+            <p>We provide tools to identify authentic reviews, helping users navigate the vast ocean of online feedback with confidence.</p>
+        </div>
+        <div class="commitment-card">
+            <img src="../images/industry_integrity.jpg" alt="Industry Integrity">
+            <h3>Promoting Industry Integrity</h3>
+            <p>We promote a culture of honesty and accountability in the online marketplace by elevating review authenticity standards.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Our Dedicated Team</h2>
+        <p>Experts committed to your trust.</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="../images/data_scientist.webp" alt="Data Scientist">
+                <h3>Data Scientists</h3>
+                <p>Our data scientists specialize in machine learning and NLP to power our AI review detection system.</p>
+            </div>
+            <div class="team-member">
+                <img src="../images/support_specialist.webp" alt="Support Specialist">
+                <h3>Customer Support Specialists</h3>
+                <p>Our support team assists users, ensuring smooth and effective solutions for all inquiries.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fake Shoes Review. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

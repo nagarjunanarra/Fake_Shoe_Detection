@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Fake Shoes Review</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: Grey;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .site-name:hover {
+            color: #00ff99;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0 300px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3 ;
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .section h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: rgb(192, 124, 23);
+            margin-bottom: 40px;
+        }
+
+        .info-container, .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .info-card, .social-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            width: 30%;
+            min-width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover, .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card img, .social-card img {
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover img, .social-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .info-card div, .social-card div {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .info-card h3, .social-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-card p, .social-card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .info-card button, .social-card button {
+            background-color: rgb(192, 124, 23);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .info-card button:hover, .social-card button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-form {
+            background-color: #222;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form p {
+            font-size: 18px;
+            color: rgb(192, 124, 23);
+            margin-bottom: 30px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: rgb(192, 124, 23);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: grey;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgb(192, 124, 23);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo-container">
+            <img src="../images/Logo.jpg" alt="Fake Shoes Review" class="logo">
+            <span class="site-name">Fake Shoes Review</span>
+        </div>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Works.html">How It Works</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="section" style="padding-top: 30px;">
+    <h1>Locate Us Easily</h1>
+    <p>Find our office with ease.</p>
+    <div class="info-container">
+        <div class="info-card">
+            <img src="../images/office_location.jpg" alt="Office Location">
+            <div>
+                <h3>Our Office Location</h3>
+                <p>123 Shoe Lane, Fashion District, NY 10001. Visit us Monday to Friday, 9 AM to 5 PM.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="info-card">
+            <img src="../images/contact_details.jpg" alt="Contact Details">
+            <div>
+                <h3>Contact Details</h3>
+                <p>Phone: (123) 456-7890 | Email: contact@fakeshoesreview.com</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="info-card">
+            <img src="../images/interactive_map.webp" alt="Interactive Map">
+            <div>
+                <h3>Interactive Map</h3>
+                <p>Zoom in, get directions, and explore landmarks with our interactive map.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h1>Follow Us for Updates and Insights</h1>
+    <div class="social-container">
+        <div class="social-card">
+            <img src="../images/facebook.jpg" alt="Facebook">
+            <div>
+                <h3>Facebook</h3>
+                <p>Stay updated with our latest news and tips to identify fake reviews.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="social-card">
+            <img src="../images/twitter.webp" alt="Twitter">
+            <div>
+                <h3>Twitter</h3>
+                <p>Get real-time updates and insights on online reviews and counterfeit detection.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="social-card">
+            <img src="../images/linkedin.png" alt="LinkedIn">
+            <div>
+                <h3>LinkedIn</h3>
+                <p>Network with industry professionals and stay informed about advancements in AI.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form">
+    <h2>Reach Out to Us</h2>
+    <p>We value your feedback and inquiries.</p>
+    <form>
+        <input type="text" placeholder="Name" required><br>
+        <input type="email" placeholder="Email" required><br>
+        <textarea placeholder="Message" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Fake Shoes Review. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
