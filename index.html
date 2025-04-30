@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Shoe Detection - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #10B981;  /* Emerald */
+      --primary-dark: #059669;
+      --secondary: #3B82F6; /* Blue */
+      --accent: #F59E0B;   /* Amber */
+      --dark: #1F2937;
+      --light: #F9FAFB;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .header-gradient {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .tech-badge {
+      background-color: #D1FAE5;
+      color: #065F46;
+    }
+    
+    .success-badge {
+      background-color: #D1FAE5;
+      color: #065F46;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+    }
+    
+    th {
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    td, th {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #E5E7EB;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #F9FAFB;
+    }
+    
+    tr:hover {
+      background-color: #F3F4F6;
+    }
+    
+    .screenshot {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .screenshot:hover {
+      transform: scale(1.02);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .model-pipeline {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .model-pipeline div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .model-pipeline i {
+      margin-right: 0.75rem;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header-gradient text-white sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-shoe-prints text-2xl"></i>
+          <h1 class="text-xl font-bold">Fake Shoe Detection</h1>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+          <a href="#overview" class="nav-link">Overview</a>
+          <a href="#contributions" class="nav-link">My Work</a>
+          <a href="#sprints" class="nav-link">Sprints</a>
+          <a href="#evidence" class="nav-link">Code</a>
+          <a href="https://github.com/nagarjunanarra/Fake_Shoe_Detection" class="bg-white text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-all">
+            <i class="fab fa-github mr-2"></i>View Code
+          </a>
+        </nav>
+        <button class="md:hidden text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="container mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h1 class="text-4xl font-bold mb-4">AI-Powered Fake Shoe Detection</h1>
+        <p class="text-lg mb-6">
+          A full-stack application that detects counterfeit shoes using computer vision. 
+          I designed the UI, built the FastAPI backend, and trained the TensorFlow CNN model.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tech-badge badge"><i class="fab fa-python mr-1"></i> Python 3.9+</span>
+          <span class="tech-badge badge"><i class="fas fa-bolt mr-1"></i> FastAPI</span>
+          <span class="tech-badge badge"><i class="fas fa-brain mr-1"></i> TensorFlow</span>
+          <span class="tech-badge badge"><i class="fab fa-html5 mr-1"></i> HTML/CSS</span>
+        </div>
+        <a href="#contributions" class="btn-primary text-white px-6 py-3 rounded-lg inline-flex items-center">
+          <i class="fas fa-code mr-2"></i> View My Contributions
+        </a>
+      </div>
+      <div class="md:w-1/2">
+        <img src="./Frontend/images/webapp_screenshot.png" alt="Web App Screenshot" class="w-full rounded-lg shadow-xl screenshot">
+      </div>
+    </div>
+  </section>
+
+  <!-- My Contributions -->
+  <section id="contributions" class="bg-gray-50 py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center">My Specific Contributions</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Frontend Card -->
+        <div class="card p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-green-100 p-3 rounded-full mr-4">
+              <i class="fas fa-laptop-code text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Frontend Development</h3>
+          </div>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Designed and implemented responsive HTML/CSS UI</li>
+            <li>Created drag-and-drop upload interface with JavaScript</li>
+            <li>Built modal preview for prediction results</li>
+            <li>Developed confidence feedback visualization</li>
+          </ul>
+        </div>
+        
+        <!-- Backend Card -->
+        <div class="card p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-green-100 p-3 rounded-full mr-4">
+              <i class="fas fa-server text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Backend Development</h3>
+          </div>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Built FastAPI server with /upload endpoint</li>
+            <li>Implemented image preprocessing pipeline</li>
+            <li>Integrated TensorFlow model for predictions</li>
+            <li>Configured real-time response system</li>
+          </ul>
+        </div>
+        
+        <!-- AI Card -->
+        <div class="card p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-green-100 p-3 rounded-full mr-4">
+              <i class="fas fa-brain text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold">AI Model Development</h3>
+          </div>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Trained CNN model on shoe dataset</li>
+            <li>Achieved ~90% validation accuracy</li>
+            <li>Implemented four-class classification</li>
+            <li>Optimized model for production use</li>
+          </ul>
+        </div>
+        
+        <!-- Full Stack Card -->
+        <div class="card p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-green-100 p-3 rounded-full mr-4">
+              <i class="fas fa-project-diagram text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold">System Integration</h3>
+          </div>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Connected frontend to backend API</li>
+            <li>Implemented end-to-end prediction flow</li>
+            <li>Designed error handling and user feedback</li>
+            <li>Optimized for performance and UX</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sprint Objectives -->
+  <section id="sprints" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">Sprint Objectives</h2>
+    
+    <div class="card p-6 mb-8">
+      <table>
+        <thead>
+          <tr>
+            <th>Sprint</th>
+            <th>Objective</th>
+            <th>Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-medium">1</td>
+            <td>MVP UI with upload flow</td>
+            <td><span class="success-badge badge"><i class="fas fa-check mr-1"></i> Completed responsive layout + modal design</span></td>
+          </tr>
+          <tr>
+            <td class="font-medium">2</td>
+            <td>Model training & pipeline</td>
+            <td><span class="success-badge badge"><i class="fas fa-check mr-1"></i> Built & trained TensorFlow CNN on shoe dataset</span></td>
+          </tr>
+          <tr>
+            <td class="font-medium">3</td>
+            <td>Backend API integration</td>
+            <td><span class="success-badge badge"><i class="fas fa-check mr-1"></i> FastAPI /upload route with real-time feedback</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card p-6">
+      <h3 class="text-xl font-semibold mb-4">User Stories & Tasks</h3>
+      <ul class="space-y-4">
+        <li class="pb-3 border-b border-gray-100">
+          <div class="flex items-start">
+            <i class="fas fa-shoe-prints text-green-500 mt-1 mr-3"></i>
+            <div>
+              <h4 class="font-medium">As a user, I want to upload shoe images and get a real/fake prediction</h4>
+              <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Built user-friendly upload UI (HTML/CSS + JS logic)</li>
+                <li>Connected backend API to serve ML predictions</li>
+                <li>Integrated modal preview and confidence feedback</li>
+                <li>Tested model with varied examples</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AI Model Section -->
+  <section class="bg-gray-50 py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center">AI Model Details</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-4">Model Architecture</h3>
+          <ul class="space-y-3">
+            <li><strong>Framework:</strong> TensorFlow 2.x with Keras</li>
+            <li><strong>Input Size:</strong> 150x150 RGB images</li>
+            <li><strong>Classes:</strong> 
+              <ul class="list-disc pl-5 mt-2">
+                <li>Fake Air Force</li>
+                <li>Fake Jordan</li>
+                <li>Original Jordan</li>
+                <li>Other Class</li>
+              </ul>
+            </li>
+            <li><strong>Accuracy:</strong> ~90%+ on validation set</li>
+          </ul>
+        </div>
+        
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-4">Prediction Pipeline</h3>
+          <div class="model-pipeline">
+            <div><i class="fas fa-upload"></i> [Upload Image]</div>
+            <div><i class="fas fa-cog"></i> → [Preprocess]</div>
+            <div><i class="fas fa-network-wired"></i> → [CNN]</div>
+            <div><i class="fas fa-chart-bar"></i> → [Softmax Prediction]</div>
+            <div><i class="fas fa-tag"></i> → [Class Label + Confidence]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evidence Section -->
+  <section id="evidence" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">Code & Implementation</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-4">Repository Links</h3>
+        <ul class="space-y-3">
+          <li>
+            <a href="https://github.com/nagarjunanarra/Fake_Shoe_Detection" class="text-green-600 hover:text-green-800 font-medium">
+              <i class="fab fa-github mr-2"></i> GitHub Repository
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nagarjunanarra/Fake_Shoe_Detection/tree/main/" class="text-green-600 hover:text-green-800 font-medium">
+              <i class="fas fa-code-commit mr-2"></i> Full Commit History
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nagarjunanarra/Fake_Shoe_Detection/blob/main/Backend/model.py" class="text-green-600 hover:text-green-800 font-medium">
+              <i class="fas fa-file-code mr-2"></i> Model Implementation
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nagarjunanarra/Fake_Shoe_Detection/blob/main/Frontend/Home.html" class="text-green-600 hover:text-green-800 font-medium">
+              <i class="fab fa-html5 mr-2"></i> Frontend Code
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-4">Project Structure</h3>
+        <div class="bg-gray-50 p-4 rounded-lg font-mono text-sm">
+          <div>FakeReview/</div>
+          <div class="ml-4">├── frontend/</div>
+          <div class="ml-8">├── index.html</div>
+          <div class="ml-8">└── images/</div>
+          <div class="ml-4">├── backend/</div>
+          <div class="ml-8">├── main.py</div>
+          <div class="ml-8">└── model.py</div>
+          <div class="ml-4">├── models/</div>
+          <div class="ml-8">└── trained_model.h5</div>
+          <div class="ml-4">└── README.md</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="mb-4">Built by Nagarjuna Narra</p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://github.com/nagarjunanarra" class="hover:text-green-300">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
