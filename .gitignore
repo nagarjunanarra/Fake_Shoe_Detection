@@ -1,0 +1,8 @@
+# Ignore model and binaries
+*.h5
+*.zip
+*.pyd
+*.dll
+
+# Ignore virtual env
+env/
